@@ -1,0 +1,103 @@
+html, body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Noto Sans', sans-serif;
+  font-size: 14px;
+  line-height: 22px;
+}
+
+#map-container {
+  white-space: nowrap;
+  -webkit-user-select: none;
+  user-select: none;
+}
+
+.map {
+  height: 100%;
+  display: inline-block;
+  width: 50%;
+  position: absolute !important;
+  top: 0;
+}
+
+#map2016 {
+  left: 50%;
+}
+
+#slider {
+  position: absolute;
+  left: 50%;
+  height: 100%;
+  top: 0;
+  z-index: 500;
+}
+
+#bar {
+  margin-left: -1px;
+  height: 100%;
+  width: 2px;
+  background-color: rgba(254,107,32,1);
+}
+
+#handle {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  margin-left: -25px;
+  margin-top: -25px;
+  background-color: rgba(254,107,32,1);
+  cursor: pointer;
+}
+
+#prompt {
+  color: white;
+  background-color: rgba(254,107,32,.8);
+  position: absolute;
+  top: 0;
+  width: 350px;
+  left: calc(50% - 175px);
+  padding: 15px 20px;
+  text-align: center;
+  z-index: 500;
+  box-sizing: border-box;
+  text-shadow: 1px 1px 1px rgba(0,0,0,.25);
+}
+
+.leaflet-bar a, .reset, .leaflet-bar a:hover, .reset:hover {
+  background-color: rgba(101,105,110, .9);
+  color: white;
+  -webkit-user-select: none;
+  user-select: none;
+}
+
+.leaflet-touch .leaflet-bar a, .reset {
+  width: 50px;
+  height: 50px;
+  line-height: 50px;
+}
+
+.reset {
+  border-radius: 5px;
+  text-align: center;
+  cursor: pointer;
+  background-image: url(globe.png);
+  background-repeat: no-repeat;
+  background-position: 50% 50%;
+}
+
+.leaflet-bar, .leaflet-touch .leaflet-bar {
+  border: none;
+}
+
+.leaflet-touch .leaflet-bar a:first-child {
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+}
+
+.leaflet-touch .leaflet-bar a:last-child {
+  border-bottom-left-radius: 5px;
+  border-bottom-right-radius: 5px;
+}
