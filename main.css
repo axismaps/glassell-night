@@ -58,18 +58,32 @@ html, body {
   background-position: 50% 50%;
 }
 
-#prompt {
+#prompt, #left-label, #right-label {
   color: white;
   background-color: rgba(254,107,32,.8);
   position: absolute;
+  padding: 15px 20px;
+  z-index: 500;
+}
+
+#prompt {
   top: 0;
   width: 350px;
   left: calc(50% - 175px);
   padding: 15px 20px;
   text-align: center;
-  z-index: 500;
   box-sizing: border-box;
   text-shadow: 1px 1px 1px rgba(0,0,0,.25);
+}
+
+#left-label {
+  top: 50px;
+  left: 50px;
+}
+
+#right-label {
+  top: 50px;
+  right: 50px;
 }
 
 .leaflet-bar a, .reset, .leaflet-bar a:hover, .reset:hover {

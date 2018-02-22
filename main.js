@@ -158,6 +158,8 @@ function handleDown (e) {
     mapRight.style.width = (window.innerWidth - x) + 'px';
     map2012.invalidateSize();
     map2016.invalidateSize();
+    document.getElementById('left-label').style.left = Math.min(50, x - 70) + 'px';
+    document.getElementById('right-label').style.right = Math.min(50, (window.innerWidth - x) - 70) + 'px';
   }
 
   function handleUp () {
@@ -175,4 +177,6 @@ function resetAll () {
   document.getElementById('map2012').style.width = '50%';
   document.getElementById('map2016').style.width = '50%';
   document.getElementById('map2012').style.left = '50%';
+  document.getElementById('left-label').style.left = '50px';
+    document.getElementById('right-label').style.right = '50px';
 }
