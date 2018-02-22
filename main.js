@@ -191,6 +191,7 @@ function resetAll () {
   document.getElementById('prompt').style.display = 'block';
   document.getElementById('slider').style.left = '50%';
   document.getElementById('map2012').style.width = '50%';
+  document.getElementById('map2012').style.left = '0';
   document.getElementById('map2016').style.width = '50%';
   document.getElementById('map2012').style.left = '50%';
   map2012.invalidateSize();
