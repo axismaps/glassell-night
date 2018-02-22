@@ -5,6 +5,7 @@ html, body {
   font-size: 14px;
   line-height: 22px;
   background: rgb(3,5,13);
+  overflow: hidden;
 }
 
 #map-container {
