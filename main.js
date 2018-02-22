@@ -193,7 +193,7 @@ function resetAll () {
   document.getElementById('map2012').style.width = '50%';
   document.getElementById('map2012').style.left = '0';
   document.getElementById('map2016').style.width = '50%';
-  document.getElementById('map2012').style.left = '50%';
+  document.getElementById('map2016').style.left = '50%';
   map2012.invalidateSize();
   map2016.invalidateSize();
   document.getElementById('left-label').style.left = '50px';
