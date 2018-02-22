@@ -83,6 +83,8 @@ map2016.on('move', move2016)
   });
 
 function move2012 (e) {
+  clearTimeout(resetTimer);
+  resetTimer = setTimeout(restorePrompt, 60000);
   map2016.off('move', move2016);
   var c = map2012.getCenter();
   var z = map2012.getZoom();
@@ -91,6 +93,8 @@ function move2012 (e) {
 }
 
 function move2016 (e) {
+  clearTimeout(resetTimer);
+  resetTimer = setTimeout(restorePrompt, 60000);
   map2012.off('move', move2016);
   var c = map2016.getCenter();
   var z = map2016.getZoom();
@@ -136,6 +140,9 @@ function handleDown (e) {
   document.addEventListener('mouseup', handleUp);
   document.addEventListener('touchend', handleUp);
   document.getElementById('prompt').style.display = 'none';
+  
+  clearTimeout(resetTimer);
+  resetTimer = setTimeout(restorePrompt, 60000);
 
   function handleMove (e) {
     var x;
@@ -159,4 +166,14 @@ function handleDown (e) {
     document.removeEventListener('mouseup', handleUp);
     document.removeEventListener('touchend', handleUp);
   }
+}
+
+var resetTimer;
+function resetAll () {
+  document.getElementById('prompt').style.display = 'block';
+  document.getElementById('slider').style.left = '50%';
+  document.getElementById('map2012').style.width = '50%';
+  document.getElementById('map2016').style.width = '50%';
+  document.getElementById('map2012').style.left = '50%';
+
 }
