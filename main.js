@@ -128,6 +128,7 @@ function removeHighlight () {
 
 var slider = document.getElementById('slider');
 var handle = document.getElementById('handle');
+var sliderPct = .5;
 
 handle.addEventListener('mousedown', handleDown);
 handle.addEventListener('touchstart', handleDown);
@@ -152,6 +153,7 @@ function handleDown (e) {
       x = e.pageX;
     }
     x = Math.min(window.innerWidth - 60, Math.max(x, 60));
+    sliderPct = x / window.innerWidth;
     slider.style.left = x + 'px';
     mapLeft.style.width = x + 'px';
     mapRight.style.left = x + 'px';
@@ -168,6 +170,20 @@ function handleDown (e) {
     document.removeEventListener('mouseup', handleUp);
     document.removeEventListener('touchend', handleUp);
   }
+}
+
+window.onresize = function () {
+  var x = sliderPct * window.innerWidth;
+  var mapLeft = document.getElementById('map2012');
+  var mapRight = document.getElementById('map2016');
+  slider.style.left = x + 'px';
+  mapLeft.style.width = x + 'px';
+  mapRight.style.left = x + 'px';
+  mapRight.style.width = (window.innerWidth - x) + 'px';
+  map2012.invalidateSize();
+  map2016.invalidateSize();
+  document.getElementById('left-label').style.left = Math.min(50, x - 70) + 'px';
+  document.getElementById('right-label').style.right = Math.min(50, (window.innerWidth - x) - 70) + 'px';
 }
 
 var resetTimer;
