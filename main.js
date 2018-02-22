@@ -64,14 +64,37 @@ var countries2016 = L.geoJSON(geojson, {
   }
 }).addTo(map2016);
 
-map2012.on('zoom', function () {
-  //removeHighlight();
-}).on('click', function (e) {
-  var target = e.originalEvent.target;
-  if (!target || target.tagName.toLowerCase() != 'path') {
-    removeHighlight();
-  }
-});
+map2012.on('move', move2012)
+  .on('click', function (e) {
+    var target = e.originalEvent.target;
+    if (!target || target.tagName.toLowerCase() != 'path') {
+      removeHighlight();
+    }
+  });
+
+map2016.on('move', move2016)
+  .on('click', function (e) {
+    var target = e.originalEvent.target;
+    if (!target || target.tagName.toLowerCase() != 'path') {
+      removeHighlight();
+    }
+  });
+
+function move2012 (e) {
+  map2016.off('move', move2016);
+  var c = map2012.getCenter();
+  var z = map2012.getZoom();
+  map2016.setView(c, z, {animate: false});
+  map2016.on('move', move2016);
+}
+
+function move2016 (e) {
+  map2012.off('move', move2016);
+  var c = map2016.getCenter();
+  var z = map2016.getZoom();
+  map2012.setView(c, z, {animate: false});
+  map2012.on('move', move2016);
+}
 
 function highlightFeature (layer) {
   removeHighlight();
