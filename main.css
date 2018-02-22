@@ -32,6 +32,7 @@ html, body {
   height: 100%;
   top: 0;
   z-index: 500;
+  opacity: .8;
 }
 
 #bar {
@@ -52,6 +53,9 @@ html, body {
   margin-top: -25px;
   background-color: rgba(254,107,32,1);
   cursor: pointer;
+  background-image: url(arrows.png);
+  background-repeat: no-repeat;
+  background-position: 50% 50%;
 }
 
 #prompt {
