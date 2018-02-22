@@ -35,18 +35,20 @@ var tiles2016 = L.tileLayer('tiles/2016/{z}/{x}/{y}.png', {
 var geojson = topojson.feature(countriesData, countriesData.objects.countries);
 
 var style = {
-  fillOpacity: 0.15,
+  fillOpacity: 0,
   fillColor: '#fff',
   stroke: false,
-  fill: false
+  fill: true
 }
 
-var highlightedFeature;
+var highlightStyle = {fillOpacity: .15};
+
+var highlightedFeatures = [];
 
 var countries2012 = L.geoJSON(geojson, {
   style: function (){ return style; }
 }).on('click', function (e) {
-  if (highlightedFeature != e.layer) {
+  if (highlightedFeatures.indexOf(e.layer) == -1) {
     highlightFeature(e.layer);
   } else {
     removeHighlight();
@@ -57,7 +59,7 @@ var countries2016 = L.geoJSON(geojson, {
   style: function (){ return style; }
 }).on('click', function (e) {
   document.getElementById('prompt').style.display = 'none';
-  if (highlightedFeature != e.layer) {
+  if (highlightedFeatures.indexOf(e.layer) == -1) {
     highlightFeature(e.layer);
   } else {
     removeHighlight();
@@ -98,13 +100,26 @@ function move2016 (e) {
 
 function highlightFeature (layer) {
   removeHighlight();
-  layer.setStyle({fill: true});
-  highlightedFeature = layer;
+  countries2012.eachLayer(function (l) {
+    if (l.feature.properties.NAME == layer.feature.properties.NAME) {
+      highlightedFeatures.push(l);
+      l.setStyle(highlightStyle);
+    }
+  });
+  countries2016.eachLayer(function (l) {
+    if (l.feature.properties.NAME == layer.feature.properties.NAME) {
+      highlightedFeatures.push(l);
+      l.setStyle(highlightStyle);
+    }
+  });
+  map2012.fitBounds(layer.getBounds());
 }
 
 function removeHighlight () {
-  if (highlightedFeature) highlightedFeature.setStyle({fill: false});
-  highlightedFeature = null;
+  highlightedFeatures.forEach(function (l) {
+    l.setStyle(style);
+  });
+  highlightedFeatures = [];
 }
 
 var slider = document.getElementById('slider');
