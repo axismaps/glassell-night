@@ -152,17 +152,16 @@ function handleDown (e) {
     } else {
       x = e.pageX;
     }
-    x = Math.min(window.outerWidth - 60, Math.max(x, 60));
-    console.log(e.touches)
-    sliderPct = x / window.outerWidth;
+    x = Math.min(window.innerWidth - 60, Math.max(x, 60));
+    sliderPct = x / window.innerWidth;
     slider.style.left = x + 'px';
     mapLeft.style.width = x + 'px';
     mapRight.style.left = x + 'px';
-    mapRight.style.width = (window.outerWidth - x) + 'px';
+    mapRight.style.width = (window.innerWidth - x) + 'px';
     map2012.invalidateSize();
     map2016.invalidateSize();
     document.getElementById('left-label').style.left = Math.min(50, x - 70) + 'px';
-    document.getElementById('right-label').style.right = Math.min(50, (window.outerWidth - x) - 70) + 'px';
+    document.getElementById('right-label').style.right = Math.min(50, (window.innerWidth - x) - 70) + 'px';
   }
 
   function handleUp () {
@@ -174,17 +173,17 @@ function handleDown (e) {
 }
 
 window.onresize = function () {
-  var x = sliderPct * window.outerWidth;
+  var x = sliderPct * window.innerWidth;
   var mapLeft = document.getElementById('map2012');
   var mapRight = document.getElementById('map2016');
   slider.style.left = x + 'px';
   mapLeft.style.width = x + 'px';
   mapRight.style.left = x + 'px';
-  mapRight.style.width = (window.outerWidth - x) + 'px';
+  mapRight.style.width = (window.innerWidth - x) + 'px';
   map2012.invalidateSize();
   map2016.invalidateSize();
   document.getElementById('left-label').style.left = Math.min(50, x - 70) + 'px';
-  document.getElementById('right-label').style.right = Math.min(50, (window.outerWidth - x) - 70) + 'px';
+  document.getElementById('right-label').style.right = Math.min(50, (window.innerWidth - x) - 70) + 'px';
 }
 
 var resetTimer;
