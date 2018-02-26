@@ -3,8 +3,8 @@ Object.keys(codes).forEach(function (c) {
   codesByName[codes[c]] = c;
 });
 
-var map2012 = L.map('map2012', {zoomControl: false}).setView([20, 0], 3);
-var map2016 = L.map('map2016', {zoomControl: false}).setView([20, 0], 3);
+var map2012 = L.map('map2012', {zoomControl: false, maxZoom: 7}).setView([20, 0], 3);
+var map2016 = L.map('map2016', {zoomControl: false, maxZoom: 7}).setView([20, 0], 3);
 
 var reset = L.control({ position: 'bottomright' });
 reset.onAdd = function(map) {
@@ -18,7 +18,6 @@ reset.onAdd = function(map) {
 reset.addTo(map2016);
 
 L.control.zoom({position: 'bottomright'}).addTo(map2016);
-
 
 var tiles2012 = L.tileLayer('tiles/2012/{z}/{x}/{y}.png', {
   attribution: '',
