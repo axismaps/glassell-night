@@ -16,58 +16,20 @@ html, body {
 
 .map {
   height: 100%;
+  width: 100%;
   display: inline-block;
-  width: 50%;
   position: absolute !important;
   top: 0;
   background-color: rgb(3,5,13);
 }
 
-#map2016 {
-  left: 50%;
-}
-
-#slider {
-  position: absolute;
-  left: 50%;
-  height: 100%;
-  top: 0;
-  z-index: 500;
-  opacity: .8;
-}
-
-#bar {
-  margin-left: -1px;
-  height: 100%;
-  width: 2px;
-  background-color: rgba(254,107,32,1);
-}
-
-#handle {
-  position: absolute;
-  top: 50%;
-  left: 0;
-  width: 50px;
-  height: 50px;
-  border-radius: 50%;
-  margin-left: -25px;
-  margin-top: -25px;
-  background-color: rgba(254,107,32,1);
-  cursor: pointer;
-  background-image: url(arrows.png);
-  background-repeat: no-repeat;
-  background-position: 50% 50%;
-}
-
-#prompt, #left-label, #right-label {
+#prompt{
+  visibility: hidden;
   color: white;
   background-color: rgba(254,107,32,.8);
   position: absolute;
   padding: 15px 20px;
   z-index: 500;
-}
-
-#prompt {
   top: 0;
   width: 350px;
   left: calc(50% - 175px);
@@ -75,16 +37,6 @@ html, body {
   text-align: center;
   box-sizing: border-box;
   text-shadow: 1px 1px 1px rgba(0,0,0,.25);
-}
-
-#left-label {
-  top: 50px;
-  left: 50px;
-}
-
-#right-label {
-  top: 50px;
-  right: 50px;
 }
 
 .leaflet-bar a, .reset, .leaflet-bar a:hover, .reset:hover {
