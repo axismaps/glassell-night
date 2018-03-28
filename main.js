@@ -21,6 +21,7 @@ L.control.zoom({position: 'bottomright'}).addTo(map2016);
 var tiles2016 = L.tileLayer('tiles/2016/{z}/{x}/{y}.png', {
   attribution: '',
   maxZoom: 16,
+  minZoom: 1,
   tms: true
 }).addTo(map2016);
 
