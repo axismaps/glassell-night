@@ -3,7 +3,7 @@ Object.keys(codes).forEach(function (c) {
   codesByName[codes[c]] = c;
 });
 
-var map2016 = L.map('map2016', {zoomControl: false, maxZoom: 7}).setView([20, 0], 3);
+var map2016 = L.map('map2016', {zoomControl: false, maxZoom: 6}).setView([20, 0], 3);
 
 var reset = L.control({ position: 'bottomright' });
 reset.onAdd = function(map) {
@@ -20,8 +20,9 @@ L.control.zoom({position: 'bottomright'}).addTo(map2016);
 
 var tiles2016 = L.tileLayer('tiles/2016/{z}/{x}/{y}.png', {
   attribution: '',
-  maxZoom: 16,
-  minZoom: 1,
+  maxZoom: 7,
+  minZoom: 2,
+  detectRetina: true,
   tms: true
 }).addTo(map2016);
 
