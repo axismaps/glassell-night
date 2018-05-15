@@ -1,9 +1,15 @@
+/* globals L */
+
 var codesByName = {};
 Object.keys(codes).forEach(function (c) {
   codesByName[codes[c]] = c;
 });
 
-var map2016 = L.map('map2016', {zoomControl: false, maxZoom: 6}).setView([20, 0], 3);
+var map2016 = L.map('map2016', {
+  zoomControl: false,
+  maxZoom: 6,
+  maxBounds: [[-90, -180], [90, 180]]
+}).setView([20, 0], 3);
 
 var reset = L.control({ position: 'bottomright' });
 reset.onAdd = function(map) {
