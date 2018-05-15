@@ -32,6 +32,8 @@ var tiles2016 = L.tileLayer('tiles/2016/{z}/{x}/{y}.png', {
   tms: true
 }).addTo(map2016);
 
+L.tileLayer('http://{s}.basemaps.cartocdn.com/dark_only_labels/{z}/{x}/{y}.png', { detectRetina: true }).addTo(map2016);
+
 var geojson = topojson.feature(countriesData, countriesData.objects.countries);
 
 var style = {
